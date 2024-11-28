@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Users,
   Home,
@@ -70,7 +72,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   {item.title === "Test" && <Separator className="mb-1" />}
                   {item.title === "Log out" && <Separator className="mb-1" />}
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton tooltip={item.title} asChild>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
