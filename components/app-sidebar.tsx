@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/sidebar";
 
 import NavLogo from "@/components/nav-logo";
+import { usePathname } from "next/navigation";
 
 // Menu items.
 const items = [
@@ -59,6 +60,8 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
@@ -72,7 +75,14 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   {item.title === "Test" && <Separator className="mb-1" />}
                   {item.title === "Log out" && <Separator className="mb-1" />}
-                  <SidebarMenuButton tooltip={item.title} asChild>
+                  <SidebarMenuButton
+                    isActive={
+                      (item.url === "/" && pathname === "/") ||
+                      `/${item.url}` === pathname
+                    }
+                    tooltip={item.title}
+                    asChild
+                  >
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
