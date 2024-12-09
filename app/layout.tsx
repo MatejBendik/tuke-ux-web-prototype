@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import NavHeader from "@/components/nav-header";
 
+import "./globals.css";
+
 export const metadata: Metadata = {
-  title: "LrnwithAI ",
-  description:
-    "Generated tests with AI for better learning. Learn, make, pass.",
+  title: "LrnWithAI",
+  description: "Make learning fun with AI",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
