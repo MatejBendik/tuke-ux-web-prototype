@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Make learning fun with AI",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
