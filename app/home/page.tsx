@@ -7,79 +7,68 @@ import { Button } from "@/components/ui/button";
 import Cards from "@/components/ui/cards";
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import { useState } from 'react';
 
 export default function Home() {
   const router = useRouter();
+  const [withAIButton, setWithAIButton] = useState(false);
 
   const testsCardsHeader = (
     <div className="flex justify-between">
       <div className="flex gap-1 items-center">
-        <p>Recent</p>
+        <p>Create</p>
         <Dialog>
           <DialogTrigger>
-            <CirclePlus size={20} />
+            <CirclePlus size={20} className="hover:cursor-pointer hover:scale-110 duration-300" />
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
                 <div className="text-center">
-                  <strong className="font-bold text-2xl">Create Your Class</strong>
-                  <p className="font-thin my-3">Details of your class</p>
+                  <strong className="font-bold text-2xl">
+                    Create Test
+                  </strong>
                 </div>
               </DialogTitle>
-              <DialogDescription className="border rounded-xl text-left p-3 flex flex-col gap-5">
-                <div>
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    defaultValue="My First Class"
-                    className="border"
-                    disabled
-                  />
+              <DialogDescription className="flex flex-row gap-5 py-5">
+                <div
+                  className={`border rounded-md flex justify-center items-center align-center w-1/2 hover:cursor-pointer ${withAIButton ? "bg-slate-200" : "bg-white"
+                    }`}
+                >
+                  <button
+                    className="text-4xl py-24 w-full h-full"
+                    onClick={() => {
+                      setWithAIButton(!withAIButton);
+                      console.log(withAIButton);
+                    }}
+                  >
+                    With AI
+                  </button>
                 </div>
-                <div>
-                  <Label htmlFor="name">Subject</Label>
-                  <Input
-                    id="name"
-                    defaultValue="IOT"
-                    className="border"
-                    disabled
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="name">Class Time</Label>
-                  <Input
-                    id="name"
-                    defaultValue="Pon 7:30"
-                    className="border"
-                    disabled
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="name">Year</Label>
-                  <Input
-                    id="name"
-                    defaultValue="2024/25"
-                    className="border"
-                    disabled
-                  />
+                <div className="border rounded-md flex justify-center items-center align-center w-1/2 hover:cursor-not-allowed">
+                  <span className="text-4xl py-24">Manually</span>
                 </div>
               </DialogDescription>
             </DialogHeader>
             <DialogFooter className="flex gap-2 w-full">
               <DialogClose asChild className="w-full">
-                <Button type="button" variant="secondary" >
+                <Button type="button" variant="secondary">
                   Cancel
                 </Button>
               </DialogClose>
               <DialogClose asChild className="w-full">
-                <Button type="button" variant="default" onClick={() => router.push('/classes/newClassExample')}>
+                <Button
+                  type="button"
+                  variant="default"
+                  onClick={() => router.push("/test/create")}
+                >
                   Ok
                 </Button>
               </DialogClose>
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
       </div>
     </div>
   );
@@ -111,72 +100,8 @@ export default function Home() {
   const flashCardssHeader = (
     <div className="flex justify-between">
       <div className="flex gap-1 items-center">
-        <p>Recent</p>
-        <Dialog>
-          <DialogTrigger>
-            <CirclePlus size={20} />
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>
-                <div className="text-center">
-                  <strong className="font-bold text-2xl">Create Your Class</strong>
-                  <p className="font-thin my-3">Details of your class</p>
-                </div>
-              </DialogTitle>
-              <DialogDescription className="border rounded-xl text-left p-3 flex flex-col gap-5">
-                <div>
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    defaultValue="My First Class"
-                    className="border"
-                    disabled
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="name">Subject</Label>
-                  <Input
-                    id="name"
-                    defaultValue="IOT"
-                    className="border"
-                    disabled
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="name">Class Time</Label>
-                  <Input
-                    id="name"
-                    defaultValue="Pon 7:30"
-                    className="border"
-                    disabled
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="name">Year</Label>
-                  <Input
-                    id="name"
-                    defaultValue="2024/25"
-                    className="border"
-                    disabled
-                  />
-                </div>
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter className="flex gap-2 w-full">
-              <DialogClose asChild className="w-full">
-                <Button type="button" variant="secondary" >
-                  Cancel
-                </Button>
-              </DialogClose>
-              <DialogClose asChild className="w-full">
-                <Button type="button" variant="default" onClick={() => router.push('/classes/newClassExample')}>
-                  Ok
-                </Button>
-              </DialogClose>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+        <p>Create</p>
+        <CirclePlus size={20} className="hover:cursor-pointer hover:scale-110 duration-300" />
       </div>
     </div>
   );
@@ -208,10 +133,10 @@ export default function Home() {
   const classesCardsHeader = (
     <div className="flex justify-between">
       <div className="flex gap-1 items-center">
-        <p>Recent</p>
+        <p>Create</p>
         <Dialog>
           <DialogTrigger>
-            <CirclePlus size={20} />
+            <CirclePlus size={20} className="hover:cursor-pointer hover:scale-110 duration-300" />
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -267,7 +192,7 @@ export default function Home() {
                 </Button>
               </DialogClose>
               <DialogClose asChild className="w-full">
-                <Button type="button" variant="default" onClick={() => router.push('/classes/newClassExample')}>
+                <Button type="button" variant="default" onClick={() => router.push('/classes/new-class-example')}>
                   Ok
                 </Button>
               </DialogClose>
@@ -308,7 +233,7 @@ export default function Home() {
         title="Tests"
         cardsHeader={testsCardsHeader}
         cards={testsCards}
-        navigateTo=""
+        navigateTo="/test/example-test"
         pagination={false}
       />
 
@@ -324,7 +249,7 @@ export default function Home() {
         title="Classes"
         cardsHeader={classesCardsHeader}
         cards={classesCards}
-        navigateTo="/classes/classExample"
+        navigateTo="/classes/class-example"
         pagination={false}
       />
     </div>

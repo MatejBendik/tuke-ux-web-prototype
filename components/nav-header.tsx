@@ -82,9 +82,8 @@ const NavHeader = () => {
                     </DialogTitle>
                     <DialogDescription className="flex flex-row gap-5 py-5">
                       <div
-                        className={`border rounded-md flex justify-center items-center align-center w-1/2 hover:cursor-pointer ${
-                          withAIButton ? "bg-slate-200" : "bg-white"
-                        }`}
+                        className={`border rounded-md flex justify-center items-center align-center w-1/2 hover:cursor-pointer ${withAIButton ? "bg-slate-200" : "bg-white"
+                          }`}
                       >
                         <button
                           className="text-4xl py-24 w-full h-full"
@@ -187,7 +186,7 @@ const NavHeader = () => {
                       <Button
                         type="button"
                         variant="default"
-                        onClick={() => router.push("/classes/newClassExample")}
+                        onClick={() => router.push("/classes/new-class-example")}
                       >
                         Ok
                       </Button>

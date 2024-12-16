@@ -66,7 +66,7 @@ const Classes = () => {
   const cardsHeader = (
     <div className="flex justify-between">
       <div className="flex gap-1 items-center">
-        <p>Recent</p>
+        <p>Create</p>
         <Dialog>
           <DialogTrigger>
             <CirclePlus size={20} />
@@ -125,7 +125,7 @@ const Classes = () => {
                 </Button>
               </DialogClose>
               <DialogClose asChild className="w-full">
-                <Button type="button" variant="default" onClick={() => router.push('/classes/newClassExample')}>
+                <Button type="button" variant="default" onClick={() => router.push('/classes/new-class-example')}>
                   Ok
                 </Button>
               </DialogClose>
@@ -148,10 +148,10 @@ const Classes = () => {
 
   return (
     <Cards
-      title="Classes"
+      title="Your Classes"
       cardsHeader={cardsHeader}
       cards={cards}
-      navigateTo="/classes/classExample"
+      navigateTo="/classes/class-example"
       pagination
     />
   )

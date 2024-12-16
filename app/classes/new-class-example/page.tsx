@@ -18,43 +18,43 @@ const NewClassExample = () => {
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4">
-      <div className="bg-stone-200 rounded-lg flex justify-between p-3">
+      <div className="bg-stone-200 rounded-lg flex justify-between p-4">
         <div>
           <h1 className="text-2xl">IOT</h1>
           <strong>My First Class</strong>
           <p>Pon 7:30</p>
           <div className="flex gap-2">
             <p>lrnwithai.com/class/1...</p>
-            <Share2 size={20} />
-            <Copy size={20} />
+            <Share2 size={20} className="hover:cursor-pointer hover:scale-125 duration-300" />
+            <Copy size={20} className="hover:cursor-pointer hover:scale-125 duration-300" />
           </div>
         </div>
 
         <div className="flex flex-col justify-center text-right">
           <Popover>
             <PopoverTrigger asChild>
-              <EllipsisVertical className="me-0 ms-auto cursor-pointer" />
+              <EllipsisVertical className="me-0 ms-auto cursor-pointer hover:scale-125 duration-300" />
             </PopoverTrigger>
             <PopoverContent className="w-full">
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
-                  <Trash2 size={18} />
+                  <Trash2 size={18} className="hover:cursor-pointer hover:scale-125 duration-300" />
                   <p className="text-sm">Delete</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FilePenLine size={18} />
+                  <FilePenLine size={18} className="hover:cursor-pointer hover:scale-125 duration-300" />
                   <p className="text-sm">Edit</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CircleAlert size={18} />
+                  <CircleAlert size={18} className="hover:cursor-pointer hover:scale-125 duration-300" />
                   <p className="text-sm">Report</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <SquareMinus size={18} />
+                  <SquareMinus size={18} className="hover:cursor-pointer hover:scale-125 duration-300" />
                   <p className="text-sm">Remove all members</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <SquareMinus size={18} />
+                  <SquareMinus size={18} className="hover:cursor-pointer hover:scale-125 duration-300" />
                   <p className="text-sm">Remove all content</p>
                 </div>
               </div>
@@ -80,8 +80,8 @@ const NewClassExample = () => {
       </div>
 
       {activeTab === 'dashboard' &&
-        <div className="bg-stone-200 rounded-lg p-3">
-          <div className="w-full flex justify-between">
+        <div className="bg-stone-200 rounded-lg p-4">
+          <div className="w-full flex gap-5 justify-between">
             <Dialog>
               <DialogTrigger>
                 <Button className="bg-violet-600"><Plus /> Add Post</Button>
@@ -93,7 +93,7 @@ const NewClassExample = () => {
                       <strong className="font-bold text-2xl">Create Post</strong>
                     </div>
                   </DialogTitle>
-                  <DialogDescription className="border rounded-xl text-left p-3">
+                  <DialogDescription className="border rounded-xl text-left p-3 max-h-[530px] overflow-y-auto">
                     <div>
                       <Label htmlFor="name">Name</Label>
                       <Input
@@ -132,7 +132,7 @@ const NewClassExample = () => {
                     </Button>
                   </DialogClose>
                   <DialogClose asChild className="w-full">
-                    <Button type="button" variant="default" onClick={() => router.push('/classes/classExample')}>
+                    <Button type="button" variant="default" onClick={() => router.push('/classes/class-example')}>
                       Ok
                     </Button>
                   </DialogClose>
@@ -140,28 +140,17 @@ const NewClassExample = () => {
               </DialogContent>
             </Dialog>
 
+
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" className="w-2/3 flex justify-between">
-                  Main information
+                  General information
                   <ChevronDown size={20} />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-full">
+              <PopoverContent className="md:w-[800px]">
                 <div>
-                  <Label htmlFor="link">Invite link</Label>
-                  <div className="flex gap-2 items-center">
-                    <Input
-                      id="link"
-                      defaultValue="https://www.lrnwithai.com/class/125637"
-                      disabled
-                    />
-                    <Share2 size={20} />
-                    <Copy size={20} />
-                  </div>
-                </div>
-                <div>
-                  <Label htmlFor="info">Pinned information</Label>
+                  <Label htmlFor="info">Important !</Label>
                   <Input
                     id="info"
                     defaultValue="Final test is set to date: 12.2.2025"
@@ -179,31 +168,57 @@ const NewClassExample = () => {
       }
 
       {activeTab === 'members' &&
-        <div className="bg-stone-200 rounded-lg p-3">
-          <div className="flex justify-between">
-            <Button className="bg-violet-600"><Plus />Add Member</Button>
+        <div className="bg-stone-200 rounded-lg p-4">
+          <div className="w-full flex gap-5 justify-between">
+            <Dialog>
+              <DialogTrigger>
+                <Button className="bg-violet-600"><Plus />Add Member</Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>
+                    <div className="text-center">
+                      <strong className="font-bold text-2xl">Add Member</strong>
+                    </div>
+                  </DialogTitle>
+                  <DialogDescription className="border rounded-xl text-left p-3 max-h-[530px] overflow-y-auto">
+                    <div>
+                      <Label htmlFor="name">E - mail</Label>
+                      <Input
+                        id="name"
+                        defaultValue="miroslav.hanisko@student.tuke.sk"
+                        className="border"
+                        disabled
+                      />
+                    </div>
+
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter className="flex gap-2 w-full">
+                  <DialogClose asChild className="w-full">
+                    <Button type="button" variant="secondary" >
+                      Cancel
+                    </Button>
+                  </DialogClose>
+                  <DialogClose asChild className="w-full">
+                    <Button type="button" variant="default">
+                      Ok
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" className="w-2/3 flex justify-between">
-                  Main information
+                  General information
                   <ChevronDown size={20} />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-full">
+              <PopoverContent className="md:w-[800px]">
                 <div>
-                  <Label htmlFor="link">Invite link</Label>
-                  <div className="flex gap-2 items-center">
-                    <Input
-                      id="link"
-                      defaultValue="https://www.lrnwithai.com/class/125637"
-                      disabled
-                    />
-                    <Share2 size={20} />
-                    <Copy size={20} />
-                  </div>
-                </div>
-                <div>
-                  <Label htmlFor="info">Pinned information</Label>
+                  <Label htmlFor="info">Important !</Label>
                   <Input
                     id="info"
                     defaultValue="Final test is set to date: 12.2.2025"

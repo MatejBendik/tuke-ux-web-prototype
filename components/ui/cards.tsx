@@ -24,7 +24,7 @@ const Cards: React.FC<CardsProps> = ({ title, cards, navigateTo, cardsHeader, pa
 
   return (
     <div className="flex flex-1 flex-col gap-4 p-4">
-      <strong>{title}</strong>
+      <h1 className="text-xl font-bold">{title}</h1>
 
       {cardsHeader}
 
@@ -32,7 +32,7 @@ const Cards: React.FC<CardsProps> = ({ title, cards, navigateTo, cardsHeader, pa
         {cards.map((card) => (
           <div
             key={card.id}
-            className="p-5 border rounded-lg shadow bg-white hover:cursor-pointer"
+            className="p-5 border rounded-lg shadow bg-white hover:cursor-pointer hover:scale-105 duration-300"
             onClick={() => router.push(navigateTo)}
           >
             <h2 className="text-lg font-bold mb-2">{card.title}</h2>
